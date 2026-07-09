@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotion</title>
+    <link rel="icon" type="image/png" sizes="35x35" href="./img/favicon.png">
+    <style>
+        @font-face {
+            font-family: 'Pretendard-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            cursor: url(./img/mouse.png) 0 0, auto;
+            font-family: 'Pretendard-Regular';
+            font-style: normal;
+            overflow-x: hidden;
+        }
+        body{
+            background-color: #e2d8dc;
+        }
+
+        a {
+            text-decoration: none;
+            cursor: url(./img/mouse_onpng.png)0 0, auto;
+            z-index: 9999;
+        }
+
+        a:active {
+            cursor: url(./img/mouse_ck.png)0 0, auto;
+            z-index: 9999;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('./img/마우스_반짝이.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: 0.9;
+            animation: sparkleFade 1s ease-out forwards;
+            z-index: 9999;
+        }
+        @keyframes sparkleFade {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: scale(1.5) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* 마우스반짝이 */
+        .fixed_box {
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            width: 40px;
+        }
+
+        #top {
+            max-width: 1320px;
+            margin: 0 auto;
+            overflow: visible;
+        }
+
+        #top img {
+            width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            text-align: center;
+        }
+
+        ul li {
+            margin: 10px;
+        }
+
+        ul li a {
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.8s ease;
+            background-color: transparent;
+            background-color: #fff;
+            border-radius: 0.375em;
+            border: 1px solid #A6A1FF;
+            box-shadow:
+                inset 0 0 0 2px #A6A1FF,
+                inset 0 -0em 0 0 #ffcce6;
+            color: #A6A1FF !important;
+            display: inline-block;
+            font-size: 0.8em;
+            font-weight: 700;
+            height: 3.5em;
+            letter-spacing: 0.075em;
+            line-height: 3.5em;
+            padding: 0 2.25em;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: inline-block;
+            width: 50px;
+        }
+
+        .button a:hover {
+            box-shadow:
+                inset 0 0 0 2px #A6A1FF,
+                inset 0 -20em 0 0 #94caff;
+            color: #fff !important;
+        }
+
+        .button a:hover {
+            background-color: #ffcce6;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sparkle-container"></div>
+
+    <div id="top">
+        <img src="./img/M_PC Design Guide_umella.png" alt="">
+    </div>
+
+    <ul class="button">
+        <li><a href="#top">Top</a></li>
+        <li><a href="https://dy980908.github.io/portfolio/">Home</a></li>
+    </ul>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $('a[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 500);//움직이는 시간 조정
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+    <!--이동시 부드럽게 이동-->
+    <script>
+        $(function () {
+            let lastSparkleTime = 0;
+
+            document.addEventListener("mousemove", function (e) {
+                const now = Date.now();
+
+                if (now - lastSparkleTime > 100) {
+                    const sparkle = document.createElement("div");
+                    sparkle.classList.add("sparkle");
+
+                    sparkle.style.left = `${e.pageX}px`;
+                    sparkle.style.top = `${e.pageY}px`;
+
+                    document.getElementById("sparkle-container").appendChild(sparkle);
+
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 1000);
+
+                    lastSparkleTime = now;
+                }
+            });
+        });
+    </script>
+    <!-- 마우스반짝이 -->
+
+</body>
+
+</html>
