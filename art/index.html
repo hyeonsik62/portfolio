@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artwork_essenherb</title>
+  <link rel="stylesheet" href="./art.css">
+  <link rel="icon" type="image/png" sizes="28x28" href="./images/favicon1.png">
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <h1>
+          <a href="https://dy980908.github.io/artwork1/">
+            <img src="./images/artlogo1.png" alt="logo">
+          </a>
+        </h1>
+      </div>
+      <div class="gnb">
+        <ul>
+          <li><a href="javascript:return false;">SHOP</a></li>
+          <li><a href="javascript:return false;">BEST</a></li>
+          <li><a href="javascript:return false;">NEW</a></li>
+          <li><a href="javascript:return false;">EVENT</a></li>
+          <li><a href="javascript:return false;">BRAND</a></li>
+          <li><a href="javascript:return false;">COMMUNITY</a></li>
+        </ul>
+      </div>
+
+      <div class="header-icons">
+        <a href="https://dy980908.github.io/artwork1_login/"><img src="./images/icon1.png" alt="마이페이지"></a>
+        <a href="https://dy980908.github.io/artwork1_login/"><img src="./images/icon2.png" alt="장바구니"></a>
+        <a href="javascript:return false;"><img src="./images/icon3.png" alt="검색"></a>
+      </div>
+    </div>
+  </header>
+  <!-- header e -->
+  <div class="m_img">
+    <img src="./images/artimg1.png" alt="">
+  </div>
+  <div id="wrapper">
+    <div class="container">
+      <div class="image-section">
+        <img src="./images/art1.jpg" alt="art1">
+        <img src="./images/art2.jpg" alt="art2">
+        <img src="./images/art3.jpg" alt="art3">
+        <img src="./images/art4.jpg" alt="art4">
+      </div>
+      <!-- 상세페이지 e -->
+    </div>
+    <!-- 상세페이지 e -->
+
+    <div class="product-info">
+      <div class="actions">
+        <span class="heart" id="heart">♡</span>
+        <button class="copy-btn" id="copy-btn" title="복사하기">⧉</button>
+      </div>
+      <h1>스마트 홈캠 반려동물 자동 급식기 4L (FHD캠장착)</h1>
+
+      <ul class="md">
+        <li>BEST</li>
+        <li>MD</li>
+      </ul>
+      <div class="coupon"><a href="https://dy980908.github.io/artwork1_login/">쿠폰받기 ⤓</a></div>
+      <div class="price">
+        <p>50,000원</p>
+        <br>
+        <h3>쿠폰사용시</h3>
+        <h1>45,000원</h1>
+      </div>
+      <div class="quantity-box">
+        <button id="minus">-</button>
+        <span id="quantity">0</span>
+        <button id="plus">+</button>
+      </div>
+      <div class="buttons">
+        <button class="buy-btn">구매하기</button>
+        <button class="cart-btn">장바구니</button>
+      </div>
+      <div class="top_wrap">
+        <ul class="top">
+          <li><a href="#wrapper">Top</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 오른쪽 e -->
+  </div>
+  <!-- wrapper e -->
+  <div id="copy-popup-overlay">
+    <div id="copy-popup-box">
+      <p><strong>[URL]</strong> 복사 정보를 클립보드에 복사했습니다.</p>
+      <button id="copy-confirm">확인</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+  <script>
+    $(function () {
+      $('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500);//움직이는 시간 조정
+            return false;
+          }
+        }
+      });
+    });
+  </script>
+  <!--이동시 부드럽게 이동-->
+
+  <script>
+    const minus = document.getElementById('minus');
+    const plus = document.getElementById('plus');
+    const quantity = document.getElementById('quantity');
+
+    let count = 0;
+
+    minus.addEventListener('click', () => {
+      if (count > 0) {
+        count--;
+        quantity.textContent = count;
+      }
+    });
+
+    plus.addEventListener('click', () => {
+      count++;
+      quantity.textContent = count;
+    });
+    // 수량
+
+    const heart = document.getElementById('heart');
+    heart.addEventListener('click', () => {
+      heart.classList.toggle('active');
+      heart.textContent = heart.classList.contains('active') ? '♥' : '♡';
+    });
+    // 하트
+
+    const copyBtn = document.getElementById('copy-btn');
+    const popupOverlay = document.getElementById('copy-popup-overlay');
+    const confirmBtn = document.getElementById('copy-confirm');
+
+    copyBtn.addEventListener('click', () => {
+      const url = "https://dy980908.github.io/artwork1/";
+      navigator.clipboard.writeText(url).then(() => {
+        popupOverlay.style.display = 'flex';
+      });
+    });
+    // 복사
+
+    confirmBtn.addEventListener('click', () => {
+      popupOverlay.style.display = 'none';
+    });
+    // 팝업닫기
+
+  </script>
+
+</body>
+j
+
+</html>

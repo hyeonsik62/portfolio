@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Artwork_Knotted</title>
+  <link rel="stylesheet" href="./knotted.css">
+  <link rel="icon" type="image/png" sizes="28x28" href="./images/favicon2.png">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="https://dy980908.github.io/artwork2/">
+        <img src="./images/artlogo2.png" alt=""></a>
+    </div>
+  </header>
+  <!-- header e -->
+    <div class="gnb_box">
+    <ul class="gnb">
+      <li><a href="javascript:return false;">Online Shop</a></li>
+      <li><a href="javascript:return false;">Reservation</a></li>
+      <li><a href="javascript:return false;">Menu</a></li>
+      <li><a href="javascript:return false;" class="active">Event</a></li>
+      <li><a href="javascript:return false;">Brand</a></li>
+      <li><a href="javascript:return false;">Help</a></li>
+      <li><a href="javascript:return false;">Contact</a></li>
+    </ul>
+    </div>
+    <!-- gnb e -->
+    <div id="title_box">
+      <h1>Event</h1>
+      <ul class="title">
+        <li>Home</li>
+        <li>></li>
+        <li>Event</li>
+      </ul>
+      <p>노티드의 진행 중인 이벤트 정보를 확인하실 수 있습니다.</p>
+    </div>
+  <div class="event">
+      <a href="https://dy980908.github.io/artwork2/">
+        <h4>🍓노티드 생딸기파티 사전예약🍓</h4>
+        <p>2025.02.28 ~ 2025.03.04</p>
+      </a>
+  </div>
+    <!-- 상단 e -->
+     <div class="container">
+      <div class="image-section">
+        <img src="./images/art4.png" alt="">
+        <img src="./images/art5.png" alt="">        
+      </div>
+  <!-- 상세페이지 e -->
+   <a class="top" href="#title_box"><img src="./images/arttop.png" alt=""></a>
+   
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 500);//움직이는 시간 조정
+            return false;
+          }
+        }
+      });
+    });
+  </script>
+  <!--이동시 부드럽게 이동-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</body>
+</html>
